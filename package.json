@@ -1,0 +1,23 @@
+{
+  "name": "react-app",
+  "version": "0.0.1",
+  "description": "react app web h5",
+  "main": "index.js",
+  "dependencies": {
+    "ftime": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cycgit/react-app.git"
+  },
+  "author": "cyc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cycgit/react-app/issues"
+  },
+  "homepage": "https://github.com/cycgit/react-app#readme"
+}
