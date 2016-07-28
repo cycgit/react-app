@@ -33,7 +33,7 @@ module.exports = {
     }, {
       test: /\.js[x]?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'react-hot!babel'
     }, {
       test: /\.scss$/,
       loader: 'style!css!sass'
@@ -48,7 +48,6 @@ module.exports = {
         'NODE_ENV': '"production"'
       }
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
       url: 'http://localhost:8080'
     })

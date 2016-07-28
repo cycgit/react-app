@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-
+import Menu from './components/Menu'
 ReactDom.render(
-    <h1>配置成功</h1>,
+    <Menu/>,
     document.body.appendChild(document.createElement('div'))
 )
