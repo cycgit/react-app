@@ -1,0 +1,38 @@
+.fade-transition {
+  transition: opacity .3s;
+}
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave {
+  opacity: 0;
+}
+.slide-transition {
+  transition: transform .3s ease, opacity .3s ease;
+  transform: translate(0, 0);
+}
+.slide-enter{
+  transform: translate(0, 5px);
+  opacity: 0;
+}
+.slide-leave{
+  transform: translate(0, 30px);
+  opacity: 0;
+}
+
+.modal-enter, .modal-leave {
+  opacity: 0;
+}
+.modal-transition{
+  transition: all .3s ease;
+}
+
+.modal-enter .modal-confirm,
+.modal-leave .modal-confirm {
+  transform: scale(1.1);
+}
+.modal-enter .modal-box,
+.modal-leave .modal-box {
+  transform: scale(1.1);
+}
