@@ -1,10 +1,13 @@
 import React from 'react'
 
+
 export default React.createClass({
     render(){
+        var d = this.props.data
+        // console.log(d)
         return(
-            <div className="menu">
-            菜单
+            <div className="line">
+                {d.title}
             </div>
         )
     }
