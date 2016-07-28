@@ -10,11 +10,40 @@
     position: relative;
 }
 .header{
-    height: 40px;
+    height: 44px;
+    padding: 6px 12px;
 }
 .body{
-    flex: 1
+    flex: 1;
+    overflow-y: scroll;
+
 }
 .menu{
     height: 49px;
+}
+
+.content-list{
+    padding: 4px 12px 10px 12px;
+    li{
+        height: 100px;
+        border-bottom: 1px solid #d5dbdb;
+    }
+}
+.user-info{
+    display: flex;
+    width: 100%;
+    .name{
+        flex: 1;
+        margin-left: 12px;
+    }
+    .time{
+        margin-top: 5px;
+    }
+    .avatar{
+        img{
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+        }
+    }
 }

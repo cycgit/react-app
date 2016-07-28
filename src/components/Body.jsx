@@ -11,7 +11,7 @@ export default React.createClass({
         }
     },
     componentDidMount(){
-        get('https://cnodejs.org/api/v1/topics', {page: 1, limit: 5, mdrender: false}, res =>{
+        get('https://cnodejs.org/api/v1/topics', {page: 1, limit: 10, mdrender: false}, res =>{
 
 
             this.setState({items: res.data})

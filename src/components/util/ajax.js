@@ -11,7 +11,7 @@ function get(url, data, callback) {
     var json = JSON.parse(xhr.responseText)
     callback(json);
   }
-  //xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  // xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.send();
 }
 

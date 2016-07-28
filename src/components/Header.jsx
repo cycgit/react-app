@@ -4,7 +4,7 @@ export default React.createClass({
     render(){
         return(
             <div className="header">
-            顶部 
+            二胖手  
             </div>
         )
     }
