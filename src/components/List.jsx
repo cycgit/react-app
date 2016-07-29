@@ -6,14 +6,12 @@ export default React.createClass({
     render(){
         var d = this.props.data
         return(
-            <ul className="content-list">
                 <li>
                     <div className="user-info">
                         <div className="avatar">
                             <img src={d.author.avatar_url} />
                         </div>
                         <div className="name">
-
                             <div>{d.author.loginname}</div>
                             <div className="time">{ftime(d.create_at)}</div>
                         </div>
@@ -21,11 +19,11 @@ export default React.createClass({
                             <i className="iconfont icon-star"></i>
                         </div>
                     </div>
-                    <div>
+                    <p className="title-line">
                         {d.title}
-                    </div>
+                    </p>
                 </li>
-            </ul>
+
         )
     }
 })

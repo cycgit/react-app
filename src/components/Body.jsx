@@ -3,32 +3,63 @@ import List from './List'
 import {get, post} from './util/ajax.js'
 
 
-
+// React.initializeTouchEvents(true)
 export default React.createClass({
     getInitialState(){
         return {
-            items:[]
+            items:[],
+            loading: true,
+            page: 0
         }
     },
     componentDidMount(){
-        get('https://cnodejs.org/api/v1/topics', {page: 1, limit: 10, mdrender: false}, res =>{
 
+        this.loadDate()
+    },
+    loadDate(){
+        this.setState({loading: true})
+        get('https://cnodejs.org/api/v1/topics', {page: this.state.page+1, limit: 6, mdrender: false}, res =>{
 
-            this.setState({items: res.data})
+            this.setState({items: this.state.items.concat(res.data), loading: false, page: this.state.page + 1})
         })
+    },
+    scroll(e){
+        if(!this.state.loading){
+            var dom = this.refs.body
+            var sHeight = dom.scrollHeight
+            var cHeight = dom.clientHeight
+            var sTop = dom.scrollTop
+
+            var diff = sHeight - cHeight - sTop
+            if(diff<20){
+
+                this.loadDate()
+            }
+
+        }
+
 
 
     },
     render(){
-        var items = this.state.items
+        let {items, loading} = this.state
+
+        let icon = loading ? <li className="loading-li"><i className="loading"></i></li> : null
+
+
         return(
 
-            <div className="body">
+            <div className="body" onScroll={this.scroll} ref="body">
+            <ul className="content-list">
               {
                     items.map(function(item){
                         return <List data={item}></List>
                     })
               }
+
+            {icon}
+
+            </ul>
             </div>
         )
     }

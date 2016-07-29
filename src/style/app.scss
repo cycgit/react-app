@@ -25,13 +25,25 @@
 .content-list{
     padding: 4px 12px 10px 12px;
     li{
-        height: 100px;
         border-bottom: 1px solid #d5dbdb;
+        box-sizing: border-box;
+        padding: 5px
+    }
+    .loading-li{
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2db7f5;
+    }
+    .loading{
+        font-size: 20px
     }
 }
 .user-info{
     display: flex;
     width: 100%;
+    margin-bottom: 12px;
     .name{
         flex: 1;
         margin-left: 12px;
@@ -46,4 +58,9 @@
             border-radius: 50%;
         }
     }
+}
+.title-line{
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
 }
