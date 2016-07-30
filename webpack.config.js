@@ -10,10 +10,7 @@ module.exports = {
     inline: true,
     progress: true,
     // contentBase: './static',
-    port: 8080,
-    staticOptions: {
-
-    }
+    port: 8080
 
   },
   entry: [

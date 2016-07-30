@@ -11,7 +11,7 @@ function get(url, data, callback) {
     var json = JSON.parse(xhr.responseText)
     callback(json);
   }
-  // xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   xhr.send();
 }
 
@@ -29,15 +29,12 @@ function post(url, data, callback) {
 
   var xhr = new XMLHttpRequest();
 
-  xhr.withCredentials = true
+  // xhr.withCredentials = true
   xhr.open('post', url);
   xhr.onload = function() {
     if (xhr.status == 200) {
 
       var json = JSON.parse(xhr.responseText)
-      if (json.code == -2) {
-        location = '/pages/login.html'
-      }
       callback(json);
 
     } else {}

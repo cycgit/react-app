@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDom from 'react-dom'
-import {Router, IndexRoute, Route, Link, hashHistory} from 'react-router'
+import { render } from 'react-dom'
+import { Router, Route, Link } from 'react-router'
 
 const App = React.createClass({
   render() {
@@ -40,22 +40,13 @@ const Message = React.createClass({
   }
 })
 
-const Dashboard = React.createClass({
-  render() {
-    return <div>Welcome to the Dashboard!</div>
-  }
-})
-
-var div = document.createElement('div')
-
-ReactDom.render(
-    <Router>
+render((
+  <Router>
     <Route path="/" component={App}>
-    <IndexRoute component={Dashboard} />
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox}>
         <Route path="messages/:id" component={Message} />
       </Route>
     </Route>
-  </Router>,
- document.body.appendChild(div))
+  </Router>
+), document.body)

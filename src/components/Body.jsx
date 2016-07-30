@@ -2,6 +2,9 @@ import React from 'react'
 import List from './List'
 import {get, post} from './util/ajax.js'
 
+// post('https://cnodejs.org/api/v1/accesstoken', {accesstoken: '7b71f388-e636-4db0-9e44-7fd43bc038be'}, res =>{
+//     console.log(res)
+// })
 
 // React.initializeTouchEvents(true)
 export default React.createClass({
@@ -18,7 +21,7 @@ export default React.createClass({
     },
     loadDate(){
         this.setState({loading: true})
-        get('https://cnodejs.org/api/v1/topics', {page: this.state.page+1, limit: 6, mdrender: false}, res =>{
+        get('https://cnodejs.org/api/v1/topics', {page: this.state.page+1, limit: 10, mdrender: false}, res =>{
 
             this.setState({items: this.state.items.concat(res.data), loading: false, page: this.state.page + 1})
         })
@@ -49,17 +52,17 @@ export default React.createClass({
 
         return(
 
-            <div className="body" onScroll={this.scroll} ref="body">
+            <div className="body" ref="body">
+
             <ul className="content-list">
               {
                     items.map(function(item){
                         return <List data={item}></List>
                     })
               }
-
-            {icon}
-
+            {/* <li className="loading-li"><i className="loading"></i></li> */}
             </ul>
+
             </div>
         )
     }

@@ -1,3 +1,6 @@
+body{
+    background-color: #f2f2f2;
+}
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -12,14 +15,40 @@
 .header{
     height: 44px;
     padding: 6px 12px;
+    background-color: #fff;
 }
 .body{
     flex: 1;
     overflow-y: scroll;
-
+    background-color: #fff;
 }
 .menu{
     height: 49px;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 0 6px rgba(0,0,0,.15);
+    .tab{
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+    .active{
+        color:#2db7f5
+    }
+    i{
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    span{
+        font-size: 12px;
+        margin-top: 4px;
+    }
 }
 
 .content-list{
@@ -48,6 +77,23 @@
         flex: 1;
         margin-left: 12px;
     }
+    .favorite{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        i{
+            text-align: right;
+        }
+        .status{
+            // margin-top: 4px
+            display: inline-block;
+            text-align: right;
+            b{
+                color: #2db7f5
+            }
+        }
+    }
     .time{
         margin-top: 5px;
     }
@@ -63,4 +109,53 @@
     color: #333;
     font-size: 16px;
     line-height: 1.5;
+}
+.topic-wrapper{
+
+    .card{
+        background-color: #fff;
+        padding: 10px;
+        // border: 1px solid #e9e9e9;
+        // box-shadow: 0 0 2px rgba(0,0,0,.15);
+    }
+    .markdown-text{
+        img{
+            width: 100%;
+        }
+        h4{
+            font-size: 20px
+        }
+    }
+}
+
+.reply-wrap{
+    background-color: #fff;
+    margin-top: 9px;
+
+    .reply-staus{
+        height: 43px;
+        border-bottom: 1px solid #ddd;
+    }
+    li{
+        padding: 10px 12px;
+        display: flex;
+    }
+    .reply-avatar{
+        margin-right: 12px;
+        img{
+            width: 34px;
+            height: 34px;
+        }
+    }
+    .time{
+        color: #929292;
+        font-size: 12px;
+        line-height: 20px
+    }
+    .name{
+        font-size: 16px;
+    }
+    .reply-content{
+        flex: 1;
+    }
 }

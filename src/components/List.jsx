@@ -1,12 +1,16 @@
 import React from 'react'
+import {Router, IndexRoute, Route, Link, hashHistory} from 'react-router'
 import {ftime} from './util'
 
 
 export default React.createClass({
+    change(id){
+        window.location.href="#/topic/"+id
+    },
     render(){
         var d = this.props.data
         return(
-                <li>
+                <li onClick={()=> this.change(d.id)}>
                     <div className="user-info">
                         <div className="avatar">
                             <img src={d.author.avatar_url} />
@@ -17,13 +21,16 @@ export default React.createClass({
                         </div>
                         <div className="favorite">
                             <i className="iconfont icon-star"></i>
+                            <span className="status">
+                                <b>{d.reply_count} </b>
+                                / {d.visit_count}
+                            </span>
                         </div>
                     </div>
                     <p className="title-line">
                         {d.title}
                     </p>
                 </li>
-
         )
     }
 })
