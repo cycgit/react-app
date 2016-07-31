@@ -72,7 +72,8 @@ body{
 .user-info{
     display: flex;
     width: 100%;
-    margin-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 7px;
     .name{
         flex: 1;
         margin-left: 12px;
@@ -86,7 +87,6 @@ body{
             text-align: right;
         }
         .status{
-            // margin-top: 4px
             display: inline-block;
             text-align: right;
             b{
@@ -119,6 +119,7 @@ body{
         // box-shadow: 0 0 2px rgba(0,0,0,.15);
     }
     .markdown-text{
+        font-size: 16px;
         img{
             width: 100%;
         }
@@ -135,6 +136,8 @@ body{
     .reply-staus{
         height: 43px;
         border-bottom: 1px solid #ddd;
+        font-style: normal;
+        color: #333;
     }
     li{
         padding: 10px 12px;
@@ -157,5 +160,25 @@ body{
     }
     .reply-content{
         flex: 1;
+    }
+}
+.comments{
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    line-height: 43px;
+    padding-left: 12px;
+    &:after{
+        content: " ";
+        width: 5px;
+        height: 5px;
+        border: 1px solid #ddd;
+        position: absolute;;
+        bottom: -4px;
+        transform: rotate(45deg);
+        left: 50%;
+        margin-left: -3px;
+        background: #fff;
     }
 }
