@@ -104,6 +104,15 @@ body{
             border-radius: 50%;
         }
     }
+
+    .visit-count{
+        text-align: right;
+        font-size: 12px;
+        flex: 1;
+        display: flex;;
+        flex-direction: column;
+        justify-content: space-around;
+    }
 }
 .title-line{
     color: #333;
@@ -181,4 +190,12 @@ body{
         margin-left: -3px;
         background: #fff;
     }
+}
+
+.tab{
+    font-size: 12px;
+    padding: 0px 5px;
+    margin: 0 5px;
+    display: inline-block;
+    border-radius: 4px
 }

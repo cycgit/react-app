@@ -2,6 +2,7 @@ import React from 'react'
 import {get} from './util/ajax'
 import {ftime} from './util'
 import Reply from './Reply'
+import Tab from './Tab'
 
 var style = {
   marginTop: 10
@@ -30,9 +31,7 @@ export default React.createClass({
     }
   },
   render() {
-
     var d = this.state.data
-    console.log(d)
     return (
       <div className="topic-wrapper">
         <div className="card">
@@ -45,8 +44,12 @@ export default React.createClass({
                   <div>{d.author.loginname}</div>
                   <div className="time">{ftime(d.create_at)} 发布</div>
               </div>
+              <div className="visit-count">
+                  <Tab top={d.top} tab={d.tab}/>
+                  <span>{d.visit_count}次浏览</span>
+              </div>
           </div>
-          <hr></hr>
+
           <div dangerouslySetInnerHTML={this.createMarkup()}></div>
         </div>
 

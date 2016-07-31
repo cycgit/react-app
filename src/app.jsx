@@ -30,7 +30,7 @@
      div.className = 'container'
 
  ReactDom.render(
-     <Router>
+     <Router history={hashHistory}>
          <Route path="/" component={App}>
             <IndexRoute component={Body} />
             <Route path="topic/:id" component={Topic} />

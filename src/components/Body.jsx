@@ -22,7 +22,6 @@ export default React.createClass({
     loadDate(){
         this.setState({loading: true})
         get('https://cnodejs.org/api/v1/topics', {page: this.state.page+1, limit: 10, mdrender: false}, res =>{
-
             this.setState({items: this.state.items.concat(res.data), loading: false, page: this.state.page + 1})
         })
     },
@@ -47,7 +46,7 @@ export default React.createClass({
     render(){
         let {items, loading} = this.state
 
-        let icon = loading ? <li className="loading-li"><i className="loading"></i></li> : null
+        // let icon = loading ? <li className="loading-li"><i className="loading"></i></li> : null
 
 
         return(
@@ -57,7 +56,7 @@ export default React.createClass({
             <ul className="content-list">
               {
                     items.map(function(item){
-                        return <List data={item}></List>
+                        return <List data={item} key={item.id}></List>
                     })
               }
             {/* <li className="loading-li"><i className="loading"></i></li> */}

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Router, IndexRoute, Route, Link, hashHistory} from 'react-router'
 import {ftime} from './util'
-
+import Tab from './Tab'
 
 export default React.createClass({
     change(id){
@@ -18,6 +18,7 @@ export default React.createClass({
                         <div className="name">
                             <div>{d.author.loginname}</div>
                             <div className="time">{ftime(d.create_at)}</div>
+
                         </div>
                         <div className="favorite">
                             <i className="iconfont icon-star"></i>
@@ -29,6 +30,7 @@ export default React.createClass({
                     </div>
                     <p className="title-line">
                         {d.title}
+                        <Tab tab={d.tab} top={d.top}/>
                     </p>
                 </li>
         )
