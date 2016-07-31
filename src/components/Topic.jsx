@@ -1,13 +1,15 @@
 import React from 'react'
 import {get} from './util/ajax'
+import {ftime} from './util'
 import Reply from './Reply'
+
 var style = {
   marginTop: 10
 }
 export default React.createClass({
 
   getInitialState() {
-    return {data: {replies: []}}
+    return {data: {replies: [], author:{}}}
   },
   componentWillReceiveProps(nextProps) {
     if (nextProps.params.id) {
@@ -30,18 +32,27 @@ export default React.createClass({
   render() {
 
     var d = this.state.data
-
+    console.log(d)
     return (
       <div className="topic-wrapper">
         <div className="card">
           <h1>{d.title}</h1>
+          <div className="user-info">
+              <div className="avatar">
+                  <img src={d.author.avatar_url} />
+              </div>
+              <div className="name">
+                  <div>{d.author.loginname}</div>
+                  <div className="time">{ftime(d.create_at)} 发布</div>
+              </div>
+          </div>
           <hr></hr>
           <div dangerouslySetInnerHTML={this.createMarkup()}></div>
         </div>
 
         <div className="reply-wrap">
             <div className="reply-staus">
-
+                <span className="comments">评论 <em>{d.reply_count}</em></span>
             </div>
             <ul>
                 {
