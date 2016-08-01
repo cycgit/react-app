@@ -59,7 +59,7 @@ export default React.createClass({
             </div>
             <ul>
                 {
-                    d.replies.map(it => <Reply replay={it}/>)
+                    d.replies.map(it => <Reply replay={it} key={it.id}/>)
                 }
             </ul>
         </div>

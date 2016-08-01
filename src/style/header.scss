@@ -1,0 +1,18 @@
+.header{
+    height: 44px;
+    padding: 6px 12px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+    .ops{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            margin: 0 10px;
+            font-size: 16px;
+        }
+    }
+}
