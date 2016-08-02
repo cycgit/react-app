@@ -13,11 +13,12 @@ export default React.createClass({
     return {data: {replies: [], author:{}}}
   },
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params.id) {
-      get('https://cnodejs.org/api/v1/topic/' + nextProps.params.id, res => {
-        this.setState({data: res.data})
-      })
-    }
+    //   console.log(1111)
+    // if (nextProps.params.id) {
+    //   get('https://cnodejs.org/api/v1/topic/' + nextProps.params.id, res => {
+    //     this.setState({data: res.data})
+    //   })
+    // }
   },
   componentDidMount() {
     get('https://cnodejs.org/api/v1/topic/' + this.props.params.id, res => {

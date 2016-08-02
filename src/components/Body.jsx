@@ -8,11 +8,20 @@ import {get, post} from './util/ajax.js'
 
 export default React.createClass({
   getInitialState() {
-    return {items: [], loading: true, page: 0}
+    return {
+        items: [],
+        loading: true,
+        page: 0,
+        body: window.document.body,
+        flag: null
+    }
   },
   componentDidMount() {
+    // document.body.onScroll = this.scroll
 
     this.loadDate()
+    window.document.body.onscroll = this.scroll
+
   },
   loadDate() {
     this.setState({loading: true})
@@ -29,15 +38,17 @@ export default React.createClass({
     })
   },
   scroll(e) {
-    if (!this.state.loading) {
-      var dom = this.refs.body
+    let {loading, body} = this.state
+    let {show} = this.props
+    if (!loading && show) {
+      var dom = body
       var sHeight = dom.scrollHeight
-      var cHeight = dom.clientHeight
+      var cHeight = window.screen.height
       var sTop = dom.scrollTop
 
       var diff = sHeight - cHeight - sTop
-      if (diff < 20) {
 
+      if (diff < 10) {
         this.loadDate()
       }
 
@@ -46,18 +57,14 @@ export default React.createClass({
   },
   render() {
     let {items, loading} = this.state
-
-    // let icon = loading ? <li className="loading-li"><i className="loading"></i></li> : null
-
+    let {show} = this.props
+    let style  = show ? null: {display: 'none'}
     return (
-
-      <div className="body" ref="body">
-
+      <div className="body" ref="body" style={style}>
         <ul className="content-list">
           {items.map(item => <List data={item} key={item.id}></List>)}
-          {/* <li className="loading-li"><i className="loading"></i></li> */}
+          <li className="loading-li"><i className="loading"></i></li>
         </ul>
-
       </div>
     )
   }

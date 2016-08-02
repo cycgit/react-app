@@ -23,9 +23,11 @@ export default React.createClass({
           <div className="favorite">
             <i className="iconfont icon-star"></i>
             <span className="status">
-              <b>{d.reply_count}
+              <b>
+              {d.reply_count}
               </b>
-              / {d.visit_count}
+              <i>/</i>
+              {d.visit_count}
             </span>
           </div>
         </div>
