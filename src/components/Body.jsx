@@ -13,8 +13,12 @@ export default React.createClass({
         loading: true,
         page: 0,
         body: window.document.body,
-        flag: null
+        flag: null,
+        type: this.props.type
     }
+  },
+  componentWillReceiveProps(){
+      
   },
   componentDidMount() {
     // document.body.onScroll = this.scroll
@@ -28,6 +32,7 @@ export default React.createClass({
     get('https://cnodejs.org/api/v1/topics', {
       page: this.state.page + 1,
       limit: 10,
+      tab: this.state.type,
       mdrender: false
     }, res => {
       this.setState({
@@ -45,9 +50,7 @@ export default React.createClass({
       var sHeight = dom.scrollHeight
       var cHeight = window.screen.height
       var sTop = dom.scrollTop
-
       var diff = sHeight - cHeight - sTop
-
       if (diff < 10) {
         this.loadDate()
       }

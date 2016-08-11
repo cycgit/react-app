@@ -1,52 +1,60 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, Link } from 'react-router'
+import { createStore, combineReducers } from 'redux'
 
-const App = React.createClass({
-  render() {
-    return (
-      <div>
-        <h1>App</h1>
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/inbox">Inbox</Link></li>
-        </ul>
-        {this.props.children}
-      </div>
-    )
+/**
+ * This is a reducer, a pure function with (state, action) => state signature.
+ * It describes how an action transforms the state into the next state.
+ *
+ * The shape of the state is up to you: it can be a primitive, an array, an object,
+ * or even an Immutable.js data structure. The only important part is that you should
+ * not mutate the state object, but return a new object if the state changes.
+ *
+ * In this example, we use a `switch` statement and strings, but you can use a helper that
+ * follows a different convention (such as function maps) if it makes sense for your
+ * project.
+ */
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1
+  case 'DECREMENT':
+    return state - 1
+  default:
+    return state
   }
-})
+}
 
-const About = React.createClass({
-  render() {
-    return <h3>About</h3>
-  }
-})
+function box(state = 1, action){
+    switch (action.type) {
+    case 'increment':
+      return state + 1
+    case 'decrement':
+      return state - 1
+    default:
+      return state
+    }
+}
 
-const Inbox = React.createClass({
-  render() {
-    return (
-      <div>
-        <h2>Inbox</h2>
-        {this.props.children || "Welcome to your Inbox"}
-      </div>
-    )
-  }
-})
+// Create a Redux store holding the state of your app.
+// Its API is { subscribe, dispatch, getState }.
+let reducer = combineReducers({counter, box})
 
-const Message = React.createClass({
-  render() {
-    return <h3>Message {this.props.params.id}</h3>
-  }
-})
+let store = createStore(reducer)
 
-render((
-  <Router>
-    <Route path="/" component={App}>
-      <Route path="about" component={About} />
-      <Route path="inbox" component={Inbox}>
-        <Route path="messages/:id" component={Message} />
-      </Route>
-    </Route>
-  </Router>
-), document.body)
+// You can use subscribe() to update the UI in response to state changes.
+// Normally you’d use a view binding library (e.g. React Redux) rather than subscribe() directly.
+// However it can also be handy to persist the current state in the localStorage.
+
+store.subscribe(() =>
+  console.log(store.getState())
+)
+
+// The only way to mutate the internal state is to dispatch an action.
+// The actions can be serialized, logged or stored and later replayed.
+store.dispatch({ type: 'INCREMENT' })
+// 1
+store.dispatch({ type: 'increment' })
+// store.dispatch({ type: 'increment' })
+
+// 2
+// store.dispatch({ type: 'DECREMENT' })
+// 1

@@ -12,31 +12,39 @@ if (process.env.NODE_ENV == 'production') {
 }
 
 var App = React.createClass({
+  getDefaultProps() {
+    return {
+        data: 1,
+        cb(type){
+
+        }
+    }
+  },
   getInitialState() {
 
     let pathname = this.props.location.pathname
 
     return {
-        showList: pathname == '/'? true: false
+      showList: pathname == '/'? true : false,
+      type: 'all'
     }
   },
-  componentWillReceiveProps(nextProps){
-      let pathname = nextProps.location.pathname
-
-      if(pathname == '/'){
-          this.setState({showList: true})
-      }else{
-           this.setState({showList: false})
-      }
+  componentWillReceiveProps(nextProps) {
+    let pathname = nextProps.location.pathname
+    if (pathname == '/') {
+      this.setState({showList: true})
+    } else {
+      this.setState({showList: false})
+    }
   },
   render() {
-      var params = this.props.params
-      var showList = this.state.showList
+    var params = this.props.params
+    var cb = this.props.cb
+    var showList = this.state.showList
     return (
       <div className="wrapper">
-        <Header params={params} getBack={this.getBack}></Header>
-        <Body show={showList}/>
-        {this.props.children}
+        <Header params={params} getBack={this.getBack} cb={cb}></Header>
+        <Body show={showList} type={this.state.type}/> {this.props.children}
       </div>
     )
   }
