@@ -7,41 +7,7 @@ import {get, post} from './util/ajax.js'
 // })
 
 export default React.createClass({
-  getInitialState() {
-    return {
-        items: [],
-        loading: true,
-        page: 0,
-        body: window.document.body,
-        flag: null,
-        type: this.props.type
-    }
-  },
-  componentWillReceiveProps(){
-      
-  },
-  componentDidMount() {
-    // document.body.onScroll = this.scroll
 
-    this.loadDate()
-    window.document.body.onscroll = this.scroll
-
-  },
-  loadDate() {
-    this.setState({loading: true})
-    get('https://cnodejs.org/api/v1/topics', {
-      page: this.state.page + 1,
-      limit: 10,
-      tab: this.state.type,
-      mdrender: false
-    }, res => {
-      this.setState({
-        items: this.state.items.concat(res.data),
-        loading: false,
-        page: this.state.page + 1
-      })
-    })
-  },
   scroll(e) {
     let {loading, body} = this.state
     let {show} = this.props
