@@ -11,7 +11,7 @@ const Types = ({source, header, onToggle, onCheck}) => {
       {source.map(item => <li
           key={item.type}
           className={header.type == item.type? 'active':''}
-          onClick={e =>  onCheck(item.type)}
+          onClick={e => onCheck(item.type)}
           >{item.name}</li>)}
     </ul>
   </div>

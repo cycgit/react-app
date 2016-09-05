@@ -1,40 +1,37 @@
-import React from 'react'
+import React, {Component} from 'react'
 import List from './List'
-import {get, post} from './util/ajax.js'
 
-// post('https://cnodejs.org/api/v1/accesstoken', {accesstoken: '7b71f388-e636-4db0-9e44-7fd43bc038be'}, res =>{
-//     console.log(res)
-// })
-
-export default React.createClass({
-
-  scroll(e) {
-    let {loading, body} = this.state
-    let {show} = this.props
-    if (!loading && show) {
-      var dom = body
-      var sHeight = dom.scrollHeight
-      var cHeight = window.screen.height
-      var sTop = dom.scrollTop
-      var diff = sHeight - cHeight - sTop
-      if (diff < 10) {
-        this.loadDate()
-      }
-
-    }
-
-  },
+export default class Body extends Component {
+  componentDidMount() {
+    this.props.onFetchList()
+  }
   render() {
-    let {items, loading} = this.state
-    let {show} = this.props
-    let style  = show ? null: {display: 'none'}
+    let {onFetchList, page, data, loading} = this.props
     return (
-      <div className="body" ref="body" style={style}>
+      <div className="body">
+        {/* <h1 onClick={onFetchList}>click</h1> */}
         <ul className="content-list">
-          {items.map(item => <List data={item} key={item.id}></List>)}
-          <li className="loading-li"><i className="loading"></i></li>
+          {data.map(it => <List key={it.id} d={it}/>)}
+          {loading
+            ? <li className="loading-li">
+                <i className="loading"></i>
+              </li>
+            : null}
         </ul>
       </div>
     )
   }
-})
+}
+
+// const Body = ({onFetchList, page, data, loading}) => (
+//   <div className="body">
+//           <ul className="content-list">
+//             {
+//               data.map(it => <List key={it.id} d={it}/>)
+//             }
+//             {loading ? <li className="loading-li"><i className="loading"></i></li> : null}
+//          </ul>
+//   </div>
+// )
+//
+// export default Body

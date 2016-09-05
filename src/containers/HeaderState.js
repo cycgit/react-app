@@ -26,10 +26,11 @@ const mapStateToProps = (state) => {
     ]
   }
 }
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onToggle: () => dispatch(toggleHeader()),
     onCheck: (typeName) => dispatch(checkType(typeName))
+
   }
 }
 
