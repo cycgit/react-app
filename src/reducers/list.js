@@ -8,7 +8,7 @@ const list = (state = {loading: false  , data: [], page: 1 }, action) => {
       })
     }else {
       return Object.assign({}, state, {
-        data: action.res.data,
+        data: state.data.concat(action.res.data),
         page: state.page+1,
         loading: false
       })

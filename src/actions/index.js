@@ -25,7 +25,7 @@ export const fetchList = () =>{
       type: 'FETCH_LIST',
       complate: false
     })
-    get('https://cnodejs.org/api/v1/topics', {page, limit: 20, tab: type}, res => {
+    get('https://cnodejs.org/api/v1/topics', {page, limit: 10, tab: type}, res => {
       dispatch({
         type: 'FETCH_LIST',
         complate: true,
