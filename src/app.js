@@ -2,19 +2,26 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+import { Router, Route, browserHistory } from 'react-router'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 import App from './components/App'
-
+import TopicContent from './containers/TopicContent'
 
 let store = createStore(reducers, applyMiddleware(thunk))
 
 let div = document.createElement('div')
 div.className = 'container'
 
+
+
 render(
   <Provider store={store}>
-    <App />
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="/topic/:id" component={TopicContent}/>
+      </Route>
+    </Router>
   </Provider>,
   document.body.appendChild(div)
 )

@@ -21,18 +21,18 @@ export default class Body extends Component {
     }
   }
   render() {
-    let {onFetchList, page, data, loading} = this.props
+    let { onFetchList, page, data, loading, show } = this.props
     return (
-      <div className="body" onScroll={(e) => this.onScroll(e)} ref="body">
-        <ul className="content-list">
-          {data.map(it => <List key={it.id} d={it}/>)}
-          {loading
-            ? <li className="loading-li">
-                <i className="loading"></i>
-              </li>
-            : null}
-        </ul>
-      </div>
+        <div className="body" ref="body" onScroll={(e) => this.onScroll(e)} style={{display: show}}>
+          <ul className="content-list">
+            {data.map(it => <List key={it.id} d={it}/>)}
+            {loading
+              ? <li className="loading-li">
+                  <i className="loading"></i>
+                </li>
+              : null}
+          </ul>
+        </div>
     )
   }
 }

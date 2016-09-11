@@ -1,12 +1,13 @@
 import React from 'react'
-import {ftime} from './util'
+import { ftime } from './util'
 import Tab from './Tab'
-
+import { Link } from 'react-router'
 require('../style/app.scss')
 
 const List = ({d}) => (
 
   <li>
+    <Link to={'/topic/'+d.id}>
     <div className="user-info">
       <div className="avatar">
         <img src={d.author.avatar_url}/>
@@ -14,7 +15,6 @@ const List = ({d}) => (
       <div className="name">
         <div>{d.author.loginname}</div>
         <div className="time">{ftime(d.create_at)}</div>
-
       </div>
       <div className="favorite">
         <i className="iconfont icon-star"></i>
@@ -31,6 +31,7 @@ const List = ({d}) => (
       {d.title}
       <Tab tab={d.tab} top={d.top}/>
     </p>
+    </Link>
   </li>
 )
 

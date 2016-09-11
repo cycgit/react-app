@@ -1,4 +1,4 @@
-const header = (state = {type: 'all', open: false}, action) => {
+export default (state = {type: 'all', open: false}, action) => {
   switch (action.type) {
     case 'TOGGLE_HEADER':
       return {type: state.type, open: !state.open}
@@ -7,5 +7,3 @@ const header = (state = {type: 'all', open: false}, action) => {
     default: return state
   }
 }
-
-export default header

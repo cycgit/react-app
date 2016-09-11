@@ -1,15 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Header from '../components/Header'
 import { fetchList } from '../actions'
 import Body from '../components/Body'
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  let {data, page, loading} = state.list
+  let show = ownProps.show
   return {
-    data: state.list.data,
-    page: state.list.page,
-    loading: state.list.loading
+    data,
+    page,
+    loading,
+    show
   }
 }
 const mapDispatchToProps = (dispatch) => {
