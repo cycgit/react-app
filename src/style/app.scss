@@ -16,6 +16,7 @@ body{
     flex: 1;
     overflow-y: scroll;
     background-color: #fff;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu{

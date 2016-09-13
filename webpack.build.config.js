@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer')
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 module.exports = {
   entry: [
-    path.resolve(__dirname, 'src/app2.jsx')
+    path.resolve(__dirname, 'src/app.js')
   ],
   output: {
     path: __dirname + '/build',
