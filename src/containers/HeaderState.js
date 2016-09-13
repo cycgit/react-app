@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
-import { toggleHeader, checkType } from '../actions'
+import { toggleHeader, checkType, reloadPage } from '../actions'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     header: state.header,
+    show: ownProps.show,
     source: [
       {
         type: 'all',
@@ -29,8 +30,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onToggle: () => dispatch(toggleHeader()),
-    onCheck: (typeName) => dispatch(checkType(typeName))
-
+    onCheck: (typeName) => dispatch(checkType(typeName)),
+    onBack: () => {ownProps.back()},
+    onReload: () => dispatch(reloadPage(ownProps.show))
   }
 }
 

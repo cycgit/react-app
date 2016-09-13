@@ -54,3 +54,15 @@ export const fetchTopic = (id) => {
     })
   }
 }
+
+//刷新页面
+export const reloadPage = (show) => {
+  return (dispatch, getState) => {
+    if(show == 'none'){
+      dispatch(fetchTopic(getState().topic.data.id))
+    }else {
+      dispatch({type: 'CHECK_TYPE', typeName: getState().header.type})
+      dispatch(fetchList())
+    }
+  }
+}

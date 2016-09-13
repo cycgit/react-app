@@ -1,9 +1,6 @@
 import React from 'react'
 
 export default React.createClass({
-  getDefaultProps() {
-    return {tab: 0, top: false}
-  },
   render() {
     let x = null
     var {tab, top} = this.props
