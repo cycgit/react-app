@@ -212,3 +212,13 @@ body{
     display: inline-block;
     border-radius: 4px
 }
+.laoding-wrap{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i{
+    font-size: 40px;
+    color: #2db7f5
+  }
+}

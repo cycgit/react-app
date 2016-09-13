@@ -21,7 +21,10 @@ export default React.createClass({
     }
     d.replies = d.replies? d.replies : []
 
-    // console.log('render')
+    if(this.props.loading){
+      return <div className="laoding-wrap"><i className="loading"></i></div>
+    }
+
     return (
       <div className="topic-wrapper">
         <div className="card">
