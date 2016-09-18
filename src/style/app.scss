@@ -126,6 +126,7 @@ body{
 .topic-wrapper{
     flex: 1;
     overflow: scroll;
+     -webkit-overflow-scrolling: touch;
     .card{
         background-color: #fff;
         padding: 10px;
