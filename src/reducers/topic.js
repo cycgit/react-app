@@ -1,4 +1,4 @@
-export default (state = { data:{}, loading: true }, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_TOPIC':
     if(action.complate == false){

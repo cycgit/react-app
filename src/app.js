@@ -7,8 +7,9 @@ import thunk from 'redux-thunk'
 import reducers from './reducers'
 import App from './components/App'
 import TopicContent from './containers/TopicContent'
+import state from './state'
 
-let store = createStore(reducers, applyMiddleware(thunk))
+let store = createStore(reducers, state, applyMiddleware(thunk))
 
 let div = document.createElement('div')
 div.className = 'container'
@@ -16,7 +17,6 @@ div.className = 'container'
 if(process.env.NODE_ENV == 'production'){
   require('./assets/sass/index')
 }
-
 
 render(
   <Provider store={store}>
@@ -28,6 +28,3 @@ render(
   </Provider>,
   document.body.appendChild(div)
 )
-
-
-// render(<div>hello world</div>, document.body.appendChild(div))

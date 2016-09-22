@@ -1,4 +1,4 @@
-export default (state = {loading: false  , data: [], page: 1 }, action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_LIST':
       if(action.complate == false){
@@ -18,6 +18,7 @@ export default (state = {loading: false  , data: [], page: 1 }, action) => {
         page: 1,
         loading: false
       })
-    default: return state
+    default:
+      return state
   }
 }
