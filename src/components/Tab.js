@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default React.createClass({
+export default class Tab extends Component {
   render() {
     let x = null
-    var {tab, top} = this.props
-    var style = {
+    let {tab, top} = this.props
+    let style = {
       backgroundColor: '',
       color: '#fff'
     }
-    var topStyle = {
+    let topStyle = {
       backgroundColor: '#E01515',
       color: '#fff'
     }
@@ -30,11 +30,9 @@ export default React.createClass({
 
     return (
       <span>
-        {top
-          ? <span style={topStyle} className="tab">置顶</span>
-          : false}
+        { top ? (<span style={topStyle} className="tab">置顶</span>) : null}
         <span style={style} className="tab">{x}</span>
       </span>
     )
   }
-})
+}

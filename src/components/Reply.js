@@ -1,18 +1,16 @@
-import React from 'react'
-import {ftime} from './util'
+import React, { Component } from 'react'
+import { ftime } from './util'
 
-export default React.createClass({
-  getDefaultProps() {
-    return {replay: {}}
-  },
+export default class Replay extends Component {
+  // 返回原生html
   createMarkup() {
     return {
       __html: this.props.replay.content || ''
     }
-  },
-  render() {
-    var d = this.props.replay
+  }
 
+  render() {
+    let d = this.props.replay
     return (
       <li>
         <div className="reply-avatar">
@@ -26,8 +24,7 @@ export default React.createClass({
         <div className="reply-icon">
           <i className="iconfont icon-message"></i>
         </div>
-
       </li>
     )
   }
-})
+}

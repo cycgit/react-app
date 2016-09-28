@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import List from './List'
 
 export default class Body extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // 页面首次加载数据
   componentDidMount() {
     this.props.onFetchList()
   }
-  onScroll(e){
+
+  // 页面滚动事件
+  onScroll(e) {
     if(!this.props.loading){
     let dom = this.refs.body
     var sHeight = dom.scrollHeight
@@ -20,6 +20,7 @@ export default class Body extends Component {
       }
     }
   }
+
   render() {
     let { onFetchList, page, data, loading, show } = this.props
     return (

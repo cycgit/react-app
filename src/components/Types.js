@@ -21,9 +21,7 @@ const Types = ({source, header, onToggle, onCheck}) => {
             className={header.type == item.type? 'active':''}
             onClick={e => onCheck(item.type)}
             >
-
             {item.name}
-
             </li>
          )}
       </ul>) : null}

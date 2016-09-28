@@ -38,8 +38,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 const HeaderState = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Header)
 
 export default HeaderState

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { fetchList } from '../actions'
 import Body from '../components/Body'
 
-
 const mapStateToProps = (state, ownProps) => {
   let {data, page, loading} = state.list
   let show = ownProps.show
@@ -14,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     show
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchList(){
@@ -22,10 +22,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
 const ScrollList = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Body)
 
 export default ScrollList

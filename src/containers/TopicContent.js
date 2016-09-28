@@ -1,3 +1,4 @@
+// 帖子详情
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchTopic } from '../actions'
@@ -12,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     id
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchTopic(id){
@@ -20,10 +22,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
 const TopicContent = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Topic)
 
 export default TopicContent
